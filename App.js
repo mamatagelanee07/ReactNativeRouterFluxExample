@@ -5,35 +5,19 @@
  */
 
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import {Router, Scene} from 'react-native-router-flux';
+import Screen1 from "./src/components/Screen1";
+import Screen2 from "./src/components/Screen2";
 
 export default class App extends Component{
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-      </View>
+      <Router>
+        <Scene key="root">
+          <Scene key="screen1" initial={true} component = {Screen1}/>
+          <Scene key="screen2" component = {Screen2}/>
+        </Scene>
+      </Router>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  }
-});
